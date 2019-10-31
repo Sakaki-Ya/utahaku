@@ -1,0 +1,126 @@
+<head>
+
+  <!-- google serach console -->
+  <meta name="google-site-verification" content="mdNqMDvKmfPjxvr7EKjLikQh9OJsBcj6DlpfekeYQE8" />
+
+  <!-- google adsense authorize -->
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-6226807901230366",
+      enable_page_level_ads: true
+    });
+  </script>
+
+  <meta charset="utf-8">
+  <title>{{ $isHomePage := eq .Title .Site.Title }}{{ .Title }}{{ if eq $isHomePage false }} -
+    {{ .Site.Title }}{{ end }}</title>
+  {{ .Hugo.Generator }}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://utahaku.com/">
+  <meta name="author" content="{{ .Site.Author.author }}">
+  {{ if eq $isHomePage true }}
+  <meta name="description" content="{{ .Site.Params.description }}">
+  {{ else }}
+  <meta name="description" content="{{ .Summary }}">
+  {{ end }}
+  <meta name="keywords" content="{{ .Site.Params.keywords }}">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  {{ if and (.Params.image) (ne .Params.image "") }}
+  <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.image }}">
+  {{ else }}
+  <meta property="og:image" content="{{ .Site.BaseURL }}image/theme/og.jpeg">
+  {{ end }}
+  {{ if eq $isHomePage true }}
+  <meta property="og:description" content="{{ .Site.Params.description }}">
+  {{ else }}
+  <meta property="og:description" content="{{ .Summary }}">
+  {{ end }}
+  <meta property="og:type" content="blog">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">
+  <meta name="twitter:title" content="{{ .Title }}">
+  <meta name="twitter:url" content="{{ .Permalink }}">
+  {{ if eq $isHomePage true }}
+  <meta name="twitter:description" content="{{ .Site.Params.description }}">
+  {{ else }}
+  <meta name="twitter:description" content="{{ .Summary }}">
+  {{ end }}
+  {{ if and (.Params.image) (ne .Params.image "") }}
+  <meta name="twitter:image:src" content="{{ .Site.BaseURL }}{{ .Params.image }}">
+  {{ else }}
+  <meta name="twitter:image:src" content="{{ .Site.BaseURL }}image/theme/og.jpeg">
+  {{ end }}
+  <link rel="shortcut icon" href="{{ .Site.BaseURL }}image/theme/favicon.jpeg">
+  <link href="https://fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/atom-one-dark.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="alternate" href="{{ .Site.BaseURL }}index.xml" type="application/rss+xml" title="{{ .Site.Title }}">
+
+  <script text="javascript">
+    // background image
+    var wall = new Array();
+    wall[0] = "/image/bg/s-0.jpg";
+    wall[1] = "/image/bg/s-1.jpg";
+    wall[2] = "/image/bg/s-2.jpg";
+    wall[3] = "/image/bg/s-3.jpg";
+    wall[4] = "/image/bg/s-4.jpg";
+    wall[5] = "/image/bg/s-5.jpg";
+    wall[6] = "/image/bg/s-6.jpg";
+    wall[7] = "/image/bg/s-7.jpg";
+    wall[8] = "/image/bg/s-8.jpg";
+    wall[9] = "/image/bg/s-9.jpg";
+    wall[10] = "/image/bg/s-10.jpg";
+    wall[11] = "/image/bg/s-11.jpg";
+    wall[12] = "/image/bg/s-12.jpg";
+    wall[13] = "/image/bg/s-13.jpg";
+    wall[14] = "/image/bg/s-14.jpg";
+    wall[15] = "/image/bg/s-15.jpg";
+    wall[16] = "/image/bg/s-16.jpg";
+    wall[17] = "/image/bg/s-17.jpg";
+    wall[18] = "/image/bg/s-18.jpg";
+    wall[19] = "/image/bg/s-19.jpg";
+    wall[20] = "/image/bg/s-20.jpg";
+    wall[21] = "/image/bg/s-21.jpg";
+    wall[22] = "/image/bg/s-22.jpg";
+    wall[23] = "/image/bg/s-23.jpg";
+    wall[24] = "/image/bg/s-24.jpg";
+    wall[25] = "/image/bg/s-25.jpg";
+    wall[26] = "/image/bg/s-26.jpg";
+    wall[27] = "/image/bg/s-27.jpg";
+    wall[28] = "/image/bg/s-28.jpg";
+    wall[29] = "/image/bg/s-29.jpg";
+    wall[30] = "/image/bg/s-30.jpg";
+    wall[31] = "/image/bg/s-31.jpg";
+    wall[32] = "/image/bg/s-32.jpg";
+    wall[33] = "/image/bg/s-33.jpg";
+    wall[34] = "/image/bg/s-34.jpg";
+    wall[35] = "/image/bg/s-35.jpg";
+    wall[36] = "/image/bg/s-36.jpg";
+    wall[37] = "/image/bg/s-37.jpg";
+    wall[38] = "/image/bg/s-38.jpg";
+    wall[39] = "/image/bg/s-39.jpg";
+    wall[40] = "/image/bg/s-40.jpg";
+    wall[41] = "/image/bg/s-41.jpg";
+    wall[42] = "/image/bg/s-42.jpg";
+    wall[43] = "/image/bg/s-43.jpg";
+    wall[44] = "/image/bg/s-44.jpg";
+    wall[45] = "/image/bg/s-45.jpg";
+    wall[46] = "/image/bg/s-46.jpg";
+    wall[47] = "/image/bg/s-47.jpg";
+    wall[48] = "/image/bg/s-48.jpg";
+    wall[49] = "/image/bg/s-49.jpg";
+    wall[50] = "/image/bg/s-50.jpg";
+    wall[51] = "/image/bg/s-51.jpg";
+    wall[52] = "/image/bg/s-52.jpg";
+    var rnd = Math.floor((Math.random() * 100)) % wall.length;
+    document.write('<style type="text/css"> body { background-image:url(', wall[rnd], '); } </style > ');
+  </script>
+
+  <script src="/static/js/script.js"></script>
+
+</head>

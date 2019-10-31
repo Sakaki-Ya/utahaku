@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en{{ end }}">
+    {{ partial "head" . }}
+
+    <body>
+        <script src="data.js"></script>
+
+        <div id="wrap" class="wrap">
+            {{ partial "header" . }}
+            <main id="keyword">
+                <p>曲名や歌詞、地域や唄のジャンルなどのキーワードを下の入力欄に入力すると、入力欄の下に検索結果が表示されます。</p>
+                <input id="keyform" onkeyup="search(this.value)" size="15" autocomplete="off" autofocus
+                    placeholder="キーワード入力欄" />
+                <!-- <span id="inputWord"></span> <span id="resultCount"></span> -->
+                <div id="result"></div>
+
+                <script>
+                    function search(query) {
+                        var result = searchData(query);
+                        var html = createHtml(result);
+                        showResult(html);
+                        showResultCount(result.length, data.length);
+                    }
+
+                    function searchData(query) {
+                        // 検索にヒットした情報を下記のような配列として格納していく
+                        // [データのインデックス, 文字の開始位置, 文字の終了位置]
+                        var result = [];
+
+                        query = query.trim();
+                        if (query.length < 1) {
+                            return result;
+                        }
+                        var re = new RegExp(query, 'i');
+                        for (var i = 0; i < data.length; ++i) {
+                            var pos = data[i].body.search(re);
+                            if (pos != -1) {
+                                result.push([i, pos, pos + query.length]);
+                            }
+                        }
+                        return result;
+                    }
+
+                    function createHtml(result) {
+                        var htmls = [];
+                        for (var i = 0; i < result.length; ++i) {
+                            var dataIndex = result[i][0];
+                            var startPos = result[i][1];
+                            var endPos = result[i][2];
+                            var url = data[dataIndex].url;
+                            var title = data[dataIndex].title;
+                            var body = data[dataIndex].body;
+                            htmls.push(createEntry(url, title, body, startPos, endPos));
+                        }
+                        return htmls.join('');
+                    }
+
+                    function createEntry(url, title, body, startPos, endPos) {
+                        return '<div class="item">' +
+                            '<a class="item_title" href="' + url + '">' + title + '</a>' +
+                            '<div class="item_excerpt">' + excerpt(body, startPos, endPos) + '</div>' +
+                            '</div>';
+                    }
+
+                    function excerpt(body, startPos, endPos) {
+                        return [
+                            body.substring(startPos - 30, startPos),
+                            '<b>', body.substring(startPos, endPos), '</b>',
+                            body.substring(endPos, endPos + 200)
+                        ].join('');
+                    }
+
+                    function showResult(html) {
+                        var el = document.getElementById('result');
+                        el.innerHTML = html;
+                    }
+
+                    // function showResultCount(count, total) {
+                    //     var el = document.getElementById('resultCount');
+                    //     el.innerHTML = '<b>' + count + '</b> 件見つかりました（' + total + '件中）';
+                    // }
+                </script>
+            </main>
+            {{ partial "footer" . }}
+        </div>
+        {{ partial "js" . }}
+    </body>
+
+</html>

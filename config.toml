@@ -1,0 +1,15 @@
+baseURL = "https://utahaku.netlify.com/"
+languageCode = "ja"
+title = "うたの博物館"
+
+[taxonomies]
+    categories = "categories"
+    region = "region"
+    composer = "composer"
+    lyricist = "lyricist"
+
+[Params]
+ localeOgp = "ja"
+ description = "うたの博物館は、童謡・唱歌・子守唄などの音源や楽譜を掲載するwebサイトです。"
+ keywords = "子守唄,子守歌,童謡,唱歌,lullaby"
+ googleanalytics = "UA-111039552-2"
